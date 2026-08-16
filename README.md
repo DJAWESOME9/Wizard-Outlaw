@@ -1,6 +1,8 @@
-# Wizard With a Gun
+# Wizard Outlaw
 
 A self-contained browser action-roguelite prototype about an outlaw wizard who draws sigils, channels spell cards, and keeps a revolver as a fallback.
+
+Cast spells by drawing shapes and playing cards, create strange builds, and chase the highest bounty—with a gun as your backup when magic runs dry.
 
 ## Play locally
 
