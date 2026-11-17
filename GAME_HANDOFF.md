@@ -204,7 +204,7 @@ Starting unlocked cards are Meteor Crown, Gravity Well, Chain Lightning, and Fro
 
 - Meteor is genuinely draggable and aimed in world space.
 - It has a full-size pointer-following ghost, range tether, impact-radius preview, and a 600px maximum targeting range.
-- Dropping over HUD, outside the arena, or back on the hand cancels and refunds the channel.
+- Releasing over HUD, including the minimap, meters, and card hand, casts at the arena position underneath. Releasing outside the arena cancels and refunds the channel.
 - Camera movement and world coordinates are accounted for.
 
 ### Chain Lightning balance
@@ -246,7 +246,7 @@ Starting unlocked sigils are Magic Missile, Frost Ring, Flame Triad, Aegis Box, 
 - Right click toggles gun stance.
 - Gun stance locks all magic.
 - Left click fires toward the mouse.
-- Base damage: `22`.
+- Base damage: `33` (`36` for Hexslinger).
 - Base cylinder: `6` rounds.
 - Base reload time: `1.3s`.
 - Enemies can drop bullets; ammunition upgrades and reload upgrades exist.
@@ -631,3 +631,22 @@ Current supporting screenshots in this folder include:
 8. When adding an enemy, define a distinct movement/attack role, telegraph, cap, gate, loot relevance, and encounter-package use.
 9. Run existing assertions and visually inspect at desktop plus the 521–900px supported breakpoint after UI changes.
 10. Update this handoff whenever a major mechanic, balance rule, backlog priority, or deferred idea changes status.
+
+## 2026-11-17 — Run relics and visual pass
+
+- Added 24 run-only relic definitions (`RELICS`), with rank caps, class-aware draft integration, and an expandable `RUN RELICS` build inspector. Relics reset in `resetRun`; they do not write persistent grimoire ranks.
+- Combat hooks support critical hits, execute damage, burn, slow synergies, kill recovery, XP bonuses, armor/evasion, retaliation, orbit and storm pulses, regeneration, one-use revival, piercing/ricochet/scatter/final-round gun builds, reload benefits, mana discounts, cooldown recovery, and kill movement bonuses.
+- Secondary damage cannot recursively apply burn or critical procs. Dead targets cannot grant duplicate kill credit; summoned kills do not grant relic healing/mana rewards.
+- Added regional procedural scenery, ritual inscriptions, soft lighting, motes, sprite detail, damage numbers, shield/orbit/burn visuals, and richer reward cards. No external assets or build dependencies.
+- Verified desktop focused assertions and added `runRelicAssertions` for caps, reset isolation, burn kills, revival, reload benefits, combined gun upgrades, ricochet targeting, and cooldown recovery. Verified mobile reward layout at 390×844. Existing focused meteor/minimap assertions assume desktop geometry; run `?test=1` at desktop size.
+- Visual fixtures: `?fixture=relics` and `?fixture=relicdraft`.
+
+## 2026-11-17 — Dedicated Magic Missile run upgrades
+
+Eight missile-only relics expand the pool to 32 definitions. Volley/damage/range/speed/cooldown/homing/efficiency have three ranks; piercing has two. `missileRunStats()` supplies casting and target acquisition; speed adjusts lifetime to preserve range, and volley pays mana once. Missile rewards require the equipped sigil and carry `ability: missile` for the existing usage-weighted sigil draft. Existing permanent signature, damage, homing, and piercing skills combine with run ranks. Rank caps, actual cast outputs, mana charging, distant acquisition, unequipped filtering, reset isolation, and speed-independent range are covered by `runMissileAssertions()` under `?test=1`. Verified all desktop assertion suites and clicked the volley reward in-browser.
+
+## 2026-11-17 — Gun upgrades and reload feedback
+
+Three new gun relics bring the pool to 35: Twin Hammer adds one full-damage bullet per rank (one ammo spent per trigger pull); Quicksilver Rounds adds 25% projectile speed per rank while preserving 828px travel range; Thunder Rounds adds contact explosions for 30% bullet damage per rank, with 70/85/100px blast radii. All cap at three ranks, stack with existing gun relics, and reset each run. Scatter pellets keep quarter damage; each projectile has independent hit history. Ricochets retain upgraded speed. Swept projectile collision catches enemies crossed between frames. Explosions credit gun damage without recursive procs or player damage.
+
+Reloading tilts the revolver and displays a rotating cylinder with filling chambers, a percentage bar beside the wizard, and a brief ready flash. Animation follows the reload timer, including pause and reload-speed upgrades. `runGunAssertions()` runs under `?test=1` alongside existing suites; `?fixture=gunupgrades` previews the choices and `?fixture=reload` freezes the reload halfway. All four suites passed; reload visuals checked at desktop and 390×844.
