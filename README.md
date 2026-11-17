@@ -52,3 +52,13 @@ Draw either an outline star or a single-stroke crossing five-point star while As
 Equip Vortex, holster the gun, and draw a widening or tightening spiral of roughly 1½–3 turns in one stroke. Either clockwise or counterclockwise works; the endpoints do not need to stay far apart. Recognition accepts varied loop counts while rejecting circles and sharp backtracking strokes.
 
 Run `node tests/vortex-recognition.cjs` to check spiral variations and rejection of other sigil templates.
+
+## Updates and changelog
+
+Use **WHAT’S NEW** in the header (the **✦** button on smaller screens) to read release notes. New releases open a popup on launch until dismissed; the browser remembers the last acknowledged version locally. Runs pause while reading and return to their previous pause state on close. Escape also dismisses the popup. Test and visual fixture URLs skip automatic notices.
+
+See [CHANGELOG.md](CHANGELOG.md) for the release history. To publish notes for another update, prepend an entry with a new version to `GAME_RELEASES` in `index.html` and update `CHANGELOG.md` to match. The first entry drives the automatic notice. Everything works offline; if browser storage is unavailable, notes remain accessible and the notice can appear again on reload.
+
+### Class skill trees
+
+Click **SKILL TREE** beneath any class during setup (double-clicking the class also works). Wizard develops Harmony and Overcasting; Hexslinger upgrades hex-round loading, damage, mana recovery, reload speed, and cylinder size; Debtmancer upgrades health, blood efficiency, kill recovery, low-mana power, and mana capacity. All three classes can expand their card bandoliers. Ranks persist and apply when starting the corresponding class. Trees share banked XP and escalating purchase costs, with prerequisites and rank caps. Pan to explore, use +/− to zoom, and RECENTER to fit the whole tree. Nodes retain their anchors on hover and purchase. `?test=1` includes class progression and combat-effect assertions.
