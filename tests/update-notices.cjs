@@ -10,6 +10,7 @@ const node = id => {
   if (!nodes.has(id)) nodes.set(id, {
     open: false, innerHTML: '', scrollTop: 100,
     style: {setProperty() {}},
+    classList: {toggle() {}},
     showModal() {this.open = true;},
     close() {this.open = false; closeListener();},
     addEventListener(type, listener) {if (type === 'close') closeListener = listener;}
@@ -25,6 +26,7 @@ const context = vm.createContext({
   keys: {KeyW: true}, drawing: true, activeDrawingPointer: 3,
   rune: [1], touchMove: {x: 1, y: 0, pointerId: 4}
 });
+vm.runInContext(html.slice(html.indexOf('function setRuneDrawing('), html.indexOf('function finishRunePointer(')), context);
 vm.runInContext(html.slice(html.indexOf('const GAME_RELEASES='), html.indexOf('async function toggleFullscreen(')), context);
 assert.equal(context.releaseSeen(), false);
 context.openUpdates();

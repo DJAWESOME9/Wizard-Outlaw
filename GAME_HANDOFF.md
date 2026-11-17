@@ -32,7 +32,7 @@ Each class now reinterprets mana differently. Wizard, Hexslinger, and Debtmancer
 ## Additional Classes — Implemented
 
 - **Hexslinger · Spellshot:** 80 mana, a seven-round cylinder, faster reload and movement. Every non-neutral spell loads two Hex Rounds (up to six). Hex Rounds deal +40% revolver damage and restore 2 mana when they hit.
-- **Debtmancer · Blood Ledger:** 125 health and 75 mana. When mana is insufficient, spell costs consume health down to a 15 HP floor. Missing mana grants up to +28% spell power; kills restore 4 mana and 2 health.
+- **Debtmancer · Blood Ledger:** 125 health and 75 mana. When mana is insufficient, spell costs consume health down to a 15 HP floor. Missing mana grants up to +28% spell power; every 15 kill credits restore 4 mana and 2 health (plus Debt Collector ranks). Each one-second burst awards 1/√kill-number credit per kill; summoned enemies earn none. Fractional progress carries forward and resets each run.
 - Both classes have dedicated resource-instrument readouts and class-aware level-up pools; Wizard-only Harmony sockets and Overcasting rewards are excluded from their drafts.
 
 ## Additional Spells — Implemented

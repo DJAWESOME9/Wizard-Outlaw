@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.4.0 — Deeper roots, greater power
+
+2026-11-17
+
+- Expanded Wizard to 13 class skills, and Hexslinger and Debtmancer to 12 each, with new defensive branches and late-tree upgrades.
+- Wizard gains mana reserves, regeneration, armor, mobility, mastery, and reload recovery. Hexslinger gains gun damage, reload wards, armor, mobility, and piercing hex rounds.
+- Debtmancer gains regeneration, armor, mobility, healing reloads, blood-payment wards, and a once-per-run escape from a fatal hit.
+- Every spell card and sigil gains mana-efficiency, mana-on-kill, and mastery branches. Existing ranks and saved progress are preserved.
+- Trees open at readable zoom with fixed node positions; pan, zoom, or use FIT TREE to inspect the complete branching layout.
+
+## 0.3.1 — Slower debt settlements
+
+2026-11-17
+
+- Debtmancer now restores health and mana every 15 kill credits instead of every kill.
+- Rapid multikills earn diminishing credit within one-second bursts; summoned enemies give no credit.
+- The Blood Ledger readout tracks settlement progress, and Debt Collector upgrades each payout.
+
 ## 0.3.0 — A path for every outlaw
 
 2026-11-17
